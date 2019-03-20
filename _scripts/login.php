@@ -22,14 +22,14 @@ $senha = $_POST['senha'];
 
 					$_SESSION['login'] = $login;	
 					echo "<script language='javascript'>
-				    window.location='../index.php';
+				    window.location='../painel.php';
 				    </script>";
 
 				}
 				else{
 					echo "<script language='javascript'>
 				    alert('Ops! Sua senha está incorreta.')
-				    window.location='../login.php';
+				    window.location='../index.php';
 				    </script>";
 				}
 
@@ -38,7 +38,7 @@ $senha = $_POST['senha'];
 
 			echo "<script language='javascript'>
 		    alert('Ops! Seu login está incorreto.')
-		    window.location='../login.php';
+		    window.location='../index.php';
 		    </script>";
 		}
 

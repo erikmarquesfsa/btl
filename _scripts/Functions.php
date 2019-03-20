@@ -20,6 +20,16 @@ function dadosLogin($login){
 
 }
 
+function dadosUsuario($login){
+    include "config.php";
+    $sql = "SELECT * FROM login WHERE login = '$login'";
+    $query = $mysqli->query($sql);
+    $linha = mysqli_fetch_array($query);
+
+    return array($linha['nome'],$linha['funcao']);
+
+}
+
 function dadosFuncao($login){
     include "_scripts/config2.php";
     $sql = "SELECT * FROM dados_gerais_claro WHERE login_rede = '$login'";

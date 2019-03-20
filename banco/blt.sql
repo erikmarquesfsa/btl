@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 14-Mar-2019 às 01:06
+-- Generation Time: 21-Mar-2019 às 00:46
 -- Versão do servidor: 10.1.31-MariaDB
 -- PHP Version: 7.0.29
 
@@ -239,13 +239,13 @@ INSERT INTO `cad_pagamento` (`id`, `data_inc`, `login_ad`, `tipo`) VALUES
 CREATE TABLE `cad_perfis` (
   `id` int(11) NOT NULL,
   `usuario` varchar(3) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `cadastro` char(1) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `programacao` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `processos` char(1) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `crms` char(1) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `vazao` char(1) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `relatorios` char(1) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `seguranca` char(1) COLLATE utf8mb4_unicode_ci NOT NULL
+  `cadastro` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `programacao` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `processos` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `crms` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `vazao` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `relatorios` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `seguranca` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -253,7 +253,7 @@ CREATE TABLE `cad_perfis` (
 --
 
 INSERT INTO `cad_perfis` (`id`, `usuario`, `cadastro`, `programacao`, `processos`, `crms`, `vazao`, `relatorios`, `seguranca`) VALUES
-(1, '2', 'N', 'N', 'N', 'N', 'N', 'N', 'S');
+(1, '2', 'SIM', 'SIM', 'NÃƒO', 'NÃƒO', 'NÃƒO', 'NÃƒO', 'SIM');
 
 -- --------------------------------------------------------
 
@@ -639,6 +639,27 @@ INSERT INTO `dados_forms` (`id`, `item`, `tipo`) VALUES
 (263, 'GUERRA', 'marca'),
 (264, 'MICHIGAN', 'marca');
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `login`
+--
+
+CREATE TABLE `login` (
+  `id` int(11) NOT NULL,
+  `login` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `senha` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `nome` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `funcao` varchar(150) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `login`
+--
+
+INSERT INTO `login` (`id`, `login`, `senha`, `nome`, `funcao`) VALUES
+(1, 'ecarmo', '1', 'ERIK MARQUES', 'ADMINISTRADOR');
+
 --
 -- Indexes for dumped tables
 --
@@ -740,6 +761,12 @@ ALTER TABLE `dados_forms`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -819,7 +846,7 @@ ALTER TABLE `cad_servico`
 -- AUTO_INCREMENT for table `cad_tanques`
 --
 ALTER TABLE `cad_tanques`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `cad_usuario`
@@ -838,6 +865,12 @@ ALTER TABLE `cad_veiculo`
 --
 ALTER TABLE `dados_forms`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=265;
+
+--
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

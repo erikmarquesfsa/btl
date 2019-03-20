@@ -1,16 +1,17 @@
 <?php
 //session_start();
-//$login = 'ecarmo';
-$login = $_SESSION['login'];
+$login = 'ecarmo';
+//$login = $_SESSION['login'];
   if($login==""){
 
     echo "<script language='javascript'>
     alert('Ops! Por favor, acesse o sistema novamente. $login')
-    window.location='../../index.php';
+    window.location='../../index.html';
     </script>";
   }
 
-
+include "_scripts/Functions.php";
+$acess = dadosAcessso(dadosLogin($login));
 
   
 

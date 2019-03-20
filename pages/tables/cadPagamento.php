@@ -1,4 +1,9 @@
 <?php
+session_start();
+include "../../_scripts/Functions.php";
+$login = $_SESSION['login'];
+$acess = dadosAcessso(dadosLogin($login));
+$nome= dadosUsuario($login);
 include "../../_scripts/config.php";
 ?>
 <!DOCTYPE html>
