@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Mar-2019 às 00:46
+-- Generation Time: 24-Mar-2019 às 19:50
 -- Versão do servidor: 10.1.31-MariaDB
 -- PHP Version: 7.0.29
 
@@ -60,6 +60,17 @@ CREATE TABLE `cad_adicionais_clientes` (
   `f_pagamento` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
   `prazo` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `cad_adicionais_clientes`
+--
+
+INSERT INTO `cad_adicionais_clientes` (`id`, `data_inc`, `login_ad`, `cliente`, `t_entrega`, `preco`, `rota1`, `rota2`, `t_ida`, `t_descarrego`, `t_volta`, `t_total`, `p_ida`, `p_volta`, `p_total`, `t_agua`, `ad_agua`, `servico`, `solicit1`, `solicit2`, `recebedor1`, `recebedor2`, `auxiliar`, `bomba`, `comp_mangueira`, `pol_mangueira`, `conexao1`, `conexao2`, `f_pagamento`, `prazo`) VALUES
+(1, '2019-03-24 17:51:25', 'ecarmo', '2', 'Entrega no Destino', '1', '2', '3', '23:59:00', '23:59:00', '23:59:00', '00:00:04', '5', '6', '7', 'Portável', '8', 'Técnico', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', 'Prazo', '1'),
+(2, '2019-03-24 18:00:05', 'ecarmo', '2', 'Entrega no Destino', '1', '2', '3', '23:59:00', '23:59:00', '23:59:00', '00:00:04', '5', '6', '7', 'Portável', '8', 'Técnico', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', 'Prazo', '1'),
+(3, '2019-03-24 18:00:59', 'ecarmo', '2', 'Entrega no Destino', '1', '2', '3', '23:59:00', '23:59:00', '23:59:00', '00:00:04', '5', '6', '7', 'Portável', '8', 'Técnico', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', 'Prazo', '1'),
+(4, '2019-03-24 18:01:19', 'ecarmo', '2', 'Entrega no Destino', '1', '2', '3', '23:59:00', '23:59:00', '23:59:00', '00:00:04', '5', '6', '7', 'Portável', '8', 'Técnico', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', 'Prazo', '1'),
+(5, '2019-03-24 18:01:37', 'ecarmo', '2', 'Entrega no Destino', '1', '2', '3', '23:59:00', '23:59:00', '23:59:00', '00:00:04', '5', '6', '7', 'Portável', '8', 'Técnico', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', 'Prazo', '2');
 
 -- --------------------------------------------------------
 
@@ -774,7 +785,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `cad_adicionais_clientes`
 --
 ALTER TABLE `cad_adicionais_clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `cad_agua`

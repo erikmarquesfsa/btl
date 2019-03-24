@@ -41,88 +41,18 @@ include "../../_scripts/config.php";
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
 
-      <header class="main-header">
-        <!-- Logo -->
-        <a href="../../index2.html" class="logo">
-          <!-- mini logo for sidebar mini 50x50 pixels -->
-         <span class="logo-mini"><b>B</b>LT</span>
-          <!-- logo for regular state and mobile devices -->
-          <!--<span class="logo-lg"><b>Admin</b>LTE</span>-->
-          <span class="logo-lg"><img src="../../images/logo3.png" width="50%" height="50%"></span>
-        </a>
-        <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top" role="navigation">
-          <!-- Sidebar toggle button-->
-          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-              <!-- Messages: style can be found in dropdown.less-->
-              
-              <!-- Notifications: style can be found in dropdown.less -->
-             
-              <!-- Tasks: style can be found in dropdown.less -->
-              
-              <!-- User Account: style can be found in dropdown.less -->
-              <li class="dropdown user user-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                  <span class="hidden-xs">Alexander Pierce</span>
-                </a>
-                <ul class="dropdown-menu">
-                  <!-- User image -->
-                  <li class="user-header">
-                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                    <p>
-                      Fulano de Tal - Admnistrador
-                      <small>Cadastro realizado em Nov. 2012</small>
-                    </p>
-                  </li>
-                  <!-- Menu Body -->
-                  <!--<li class="user-body">
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Followers</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Sales</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Friends</a>
-                    </div>
-                  </li>-->
-                  <!-- Menu Footer-->
-                  <li class="user-footer">
-                    <!--<div class="pull-left">
-                      <a href="#" class="btn btn-default btn-flat">Profile</a>
-                    </div>-->
-                    <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sair</a>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-              <!-- Control Sidebar Toggle Button -->
-              <!--<li>
-                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-              </li>-->
-            </ul>
-          </div>
-        </nav>
-      </header>
+        <?php include "../../header.php"; ?>
 
        <?php
           $id = $_GET['id'];
+          $c = $_GET['c'];
           $sql = "
             SELECT *
             FROM cad_adicionais_clientes
-            WHERE id = '$id'";
+            WHERE cliente = '$id'";
             $query = $mysqli->query($sql);
             $linha = $query->fetch_array();
-            $cliente = $linha['cliente'];
+            //$cliente = $linha['cliente'];
             $t_entrega = $linha['t_entrega'];
             $preco = $linha['preco'];
             $rota1 = $linha['rota1'];
@@ -169,7 +99,7 @@ include "../../_scripts/config.php";
         <!-- Content Header (Page header) -->
         <section class="content-header">
            <h1>
-            Alterar Cadastro de Adicionais de Clientes
+            Cadastro de Adicionais de Clientes
             <small>&nbsp;</small>
           </h1>
           <!--<ol class="breadcrumb">
@@ -186,8 +116,8 @@ include "../../_scripts/config.php";
               <div class="box">
                 <div class="box-body">
                   <!--<form name="form1" method="post" action="../../_scripts/salvar.php">-->
-                  <form id="formulario" method="post" action="../../_scripts/alterar.php" role="form">
-                  <input type="hidden" name="login" value="user">
+                  <form id="formulario" method="post" action="../../_scripts/salvar.php" role="form">
+                  <input type="hidden" name="login" value="<?php echo $login; ?>">
                   <input type="hidden" name="tp" value="cad_clientes_ad">
                   <input type="hidden" name="id" value="<?php echo $id; ?>">
 
@@ -196,7 +126,7 @@ include "../../_scripts/config.php";
                   <tr>
                     <td style="vertical-align: middle;text-align: center">Cliente:</td>
                     <td colspan="3">
-                     <input type="text" style="border-radius: 3px" value="<?php echo $cliente; ?>" readonly="" class="form-control" name="cp1" >
+                     <input type="text" style="border-radius: 3px" value="<?php echo $c; ?>" readonly="" class="form-control" name="cp1" >
                     </td>
                   </tr>
 
@@ -415,7 +345,7 @@ include "../../_scripts/config.php";
 
                   <tr>
                     <td style="text-align: center" colspan="4">
-                    <input type="submit" value="Alterar" class="btn btn-primary">
+                    <input type="submit" value="Salvar" class="btn btn-primary">
                     </td>
                   </tr>
 
