@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 24-Mar-2019 às 19:50
+-- Generation Time: 26-Mar-2019 às 03:51
 -- Versão do servidor: 10.1.31-MariaDB
 -- PHP Version: 7.0.29
 
@@ -90,7 +90,7 @@ CREATE TABLE `cad_agua` (
 --
 
 INSERT INTO `cad_agua` (`id`, `data_inc`, `login_ad`, `agua`) VALUES
-(2, '2019-02-28 02:25:58', 'user', 'Portável');
+(2, '2019-02-28 02:25:58', 'user', 'Potável');
 
 -- --------------------------------------------------------
 

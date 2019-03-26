@@ -1,3 +1,16 @@
+<?php
+//session_start();
+//$login = 'ecarmo';
+$login = $_SESSION['login'];
+  if($login==""){
+
+    echo "<script language='javascript'>
+    alert('Ops! Por favor, acesse o sistema novamente. $login')
+    window.location='../../index.php';
+    </script>";
+  }
+
+?>
 <header class="main-header">
         <!-- Logo -->
         <a href="../../index2.html" class="logo">

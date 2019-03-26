@@ -10,10 +10,6 @@ $login = $_SESSION['login'];
     </script>";
   }
 
-
-
-  
-
 ?>
 
 <!-- Sidebar user panel -->

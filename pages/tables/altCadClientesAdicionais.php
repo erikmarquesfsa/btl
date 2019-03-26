@@ -165,43 +165,43 @@ include "../../_scripts/config.php";
                   <tr>
                     <td style="vertical-align: middle;text-align: center">Tempo de Ida:</td>
                     <td>
-                      <input type="time" style="border-radius: 3px" required="" value="<?php echo $t_ida; ?>" class="form-control" name="cp6">
+                      <input type="time" id="segent"  style="border-radius: 3px" required="" value="<?php echo $t_ida; ?>" class="form-control" name="cp6" oninput="calcular()">
                     </td>
 
                     <td style="vertical-align: middle;text-align: center">Tempo de Descarrego:</td>
                     <td>
-                      <input type="time" style="border-radius: 3px" required="" value="<?php echo $t_descarrego; ?>" class="form-control" name="cp7">
+                      <input type="time" id="segsai"  style="border-radius: 3px" required="" value="<?php echo $t_descarrego; ?>" class="form-control" name="cp7" oninput="calcular()">
                     </td>
                   </tr>
 
                    <tr>
                     <td style="vertical-align: middle;text-align: center">Tempo de Volta:</td>
                     <td>
-                      <input type="time" style="border-radius: 3px" required="" value="<?php echo $t_volta; ?>" class="form-control" name="cp8">
+                      <input type="time" id="segs" style="border-radius: 3px" required="" value="<?php echo $t_volta; ?>" class="form-control" name="cp8" oninput="calcular()">
                     </td>
 
                     <td style="vertical-align: middle;text-align: center">Tempo Total:</td>
                     <td>
-                      <input type="text" style="border-radius: 3px" required="" value="<?php echo $t_total; ?>" class="form-control" name="cp9">
+                      <input type="text"  style="border-radius: 3px" required="" value="<?php echo $t_total; ?>" class="form-control" name="cp9" id="resultseg" readonly="readonly">
                     </td>
                   </tr>
 
                   <tr>
                     <td style="vertical-align: middle;text-align: center">Percurso de Ida:</td>
                     <td>
-                      <input type="text" style="border-radius: 3px" required="" value="<?php echo $p_ida; ?>" class="form-control" name="cp10">
+                      <input type="text" id="pida"  style="border-radius: 3px" required="" value="<?php echo $p_ida; ?>" class="form-control" name="cp10" oninput="calcular2()">
                     </td>
 
                     <td style="vertical-align: middle;text-align: center">Percurso de Volta:</td>
                     <td>
-                      <input type="text" style="border-radius: 3px" required="" class="form-control" value="<?php echo $p_volta; ?>" name="cp11">
+                      <input type="text" id="pvolta" style="border-radius: 3px" required="" class="form-control" value="<?php echo $p_volta; ?>" name="cp11" oninput="calcular2()">
                     </td>
                   </tr>
 
                   <tr>
                     <td style="vertical-align: middle;text-align: center">Percurso Total:</td>
                     <td>
-                      <input type="text" style="border-radius: 3px" required="" value="<?php echo $p_total; ?>" class="form-control" name="cp12">
+                      <input type="text" id="result_i" style="border-radius: 3px" required="" value="<?php echo $p_total; ?>" class="form-control" name="cp12" readonly="">
                     </td>
 
                     <td style="vertical-align: middle;text-align: center">&nbsp;</td>
@@ -768,6 +768,57 @@ include "../../_scripts/config.php";
     };
 
     </script>
+
+
+
+
+    <script type="text/javascript">
+
+      function hmToMins(str) {
+        const [hh, mm] = str.split(':').map(nr => Number(nr) || 0);
+        return hh * 60 + mm;
+      }
+
+      function calcular() {
+
+        const segent = hmToMins(document.getElementById('segent').value);
+        const segsai = hmToMins(document.getElementById('segsai').value);        
+        const segs = hmToMins(document.getElementById('segs').value);
+        
+        const diff = segsai + segent + segs;
+        if (isNaN(diff)) return;
+        const hhmm = [
+            Math.floor(diff / 60), 
+            Math.round(diff % 60)
+        ].map(nr => `00${nr}`.slice(-2)).join(':');
+        
+        document.getElementById('resultseg').value = hhmm;
+      }
+
+      calcular();
+
+    </script>
+
+
+    <script type="text/javascript">
+      function calcular2() {
+        
+        const segent = document.getElementById('pida').value;
+        const segsai = document.getElementById('pvolta').value;
+        
+        document.getElementById('result_i').value = parseInt(segsai)+parseInt(segent);
+      }
+
+      calcular2();  
+
+    </script>
+
+
+
+
+
+
+
 
   </body>
 </html>
