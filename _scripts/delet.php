@@ -6,6 +6,23 @@ $tp = $_POST['tp'];
 
 switch ($tp) {
 
+	case 'endereco_extra':
+
+		$id = utf8_decode($_POST['id']);
+
+		$sql = "DELETE FROM cad_endereco WHERE id = '$id'";
+
+		break;
+
+	case 'tel_extra':
+		
+		$id = utf8_decode($_POST['id']);
+
+		$sql = "DELETE FROM cad_tel WHERE id = '$id'";
+
+		break;
+
+
 	case 'perfil_cad':
 
 		$id = utf8_decode($_POST['id']);
@@ -141,6 +158,7 @@ switch ($tp) {
 	if($query){
 
 		echo "FOI";
+		echo $id; echo $tp;
 	}else{
 
 		echo "ERRO";

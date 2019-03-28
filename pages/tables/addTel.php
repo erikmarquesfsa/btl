@@ -58,8 +58,7 @@ include "../../_scripts/config.php";
         <!-- Content Header (Page header) -->
         <section class="content-header">
            <h1>
-            Adicionar novo endereço
-            <a href="../../exports/clientesEndereco.php"><img src="../../images/exccel.png" width="20" height="20"></a>
+            Adicionar novo telefone
             <small>&nbsp;</small>
           </h1>
           <!--<ol class="breadcrumb">
@@ -89,8 +88,8 @@ include "../../_scripts/config.php";
               <div class="box">
                 <div class="box-body">
                   <!--<form name="form1" method="post" action="../../_scripts/salvar.php">-->
-                  <form id="formulario" method="post" action="../../_scripts/addEndereco.php" role="form">
-                  <input type="hidden" name="login" value="user">
+                  <form id="formulario" method="post" action="../../_scripts/addTel.php" role="form">
+                  <input type="hidden" name="login" value="<?php echo $login; ?>">
                   <input type="hidden" name="tp" value="cad_clientes">
                   <input type="hidden" name="id" value="<?php echo $id; ?>">
 
@@ -99,56 +98,21 @@ include "../../_scripts/config.php";
                   <tr>
                     <td style="vertical-align: middle;text-align: center">Razão Social / Fantasia:</td>
                     <td colspan="3">
-                      <input type="text" style="border-radius: 3px" readonly="" value="<?php echo $nome; ?>" required="" class="form-control" name="cp1">
+                      <input type="text" style="border-radius: 3px" readonly="" value="<?php echo $nome; ?>" required="" class="form-control" name="cp0">
                     </td>
                   </tr>
                   
                   <tr>
-                    <td style="vertical-align: middle;text-align: center">Cep:</td>
+                    <td style="vertical-align: middle;text-align: center">Adicione o telefone:</td>
                     <td>
-                      <input type="number" style="border-radius: 3px" id="cep" onblur="pesquisacep(this.value);" required="" class="form-control" name="cp2">
-                    </td>
-
-                    <td style="vertical-align: middle;text-align: center">Estado:</td>
-                    <td>
-                      <input type="text" style="border-radius: 3px;vertical-align: middle;"  id="uf" required="" class="form-control" name="cp3">
+                      <input type="number" style="border-radius: 3px" id="cep" required="" class="form-control" name="cp1">
                     </td>
                   </tr>
 
-                   <tr>
-                    <td style="vertical-align: middle;text-align: center">Rua:</td>
-                    <td>
-                      <input type="text" style="border-radius: 3px" id="rua" required="" class="form-control" name="cp4">
-                    </td>
-
-                    <td style="vertical-align: middle;text-align: center">Nº:</td>
-                    <td>
-                      <input type="number" style="border-radius: 3px" required="" class="form-control" name="cp5">
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td style="vertical-align: middle;text-align: center">Bairro:</td>
-                    <td>
-                      <input type="text" style="border-radius: 3px" id="bairro" required="" class="form-control" name="cp6">
-                    </td>
-
-                    <td style="vertical-align: middle;text-align: center">Cidade:</td>
-                    <td>
-                      <input type="text" style="border-radius: 3px"  id="cidade" required="" class="form-control" name="cp7">
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td style="vertical-align: middle;text-align: center">Complemento:</td>
-                    <td colspan="3">
-                      <input type="text" style="border-radius: 3px"  required="" class="form-control" name="cp8">
-                    </td>
-                  </tr>                 
-
+                    
                   <tr>
                     <td style="text-align: center" colspan="4">
-                    <input type="submit" value="Adicionar Endereço" class="btn btn-primary">
+                    <input type="submit" value="Adicionar Telefone" class="btn btn-primary">
                     </td>
                   </tr>
 
@@ -366,24 +330,16 @@ include "../../_scripts/config.php";
                var i = 1;
                 // Armazenando informações do formulário em variáveis
                 var cp1 = $("input[name=cp1]").val();
-                var cp2 = $("input[name=cp2]").val();
-                var cp3 = $("input[name=cp3]").val();
-                var cp4 = $("input[name=cp4]").val();
-                var cp5 = $("input[name=cp5]").val();
-                var cp6 = $("input[name=cp6]").val();
-                var cp7 = $("input[name=cp7]").val();
-                var cp8 = $("input[name=cp8]").val();
                 var tp = $("input[name=tp]").val();
                 var login = $("input[name=login]").val();
                 var id = $("input[name=id]").val();
                 // Fazendo requisição AJAX
-                $.post(this.action, {cp1: cp1, cp2: cp2, cp3: cp3, cp4: cp4, cp5: cp5, cp6: cp6, cp7: cp7, cp8: cp8, tp: tp, login: login, id: id}, function (resposta) {
+                $.post(this.action, {cp1: cp1, tp: tp, login: login, id: id}, function (resposta) {
                     console.log(resposta);
                     var i=0;
-                    swal("", "Adicionado com Sucesso", "success");   
-                    $('#formulario')[0].reset();    
+                    swal("", "Adicionado com Sucesso", "success");     
                     if(i==0){
-                      //setTimeout('location.reload();', 1000);
+                      setTimeout('location.reload();', 1000);
                     }       
                 });
                 // Retorna FALSE para que o formulário não seja enviado de forma convencional

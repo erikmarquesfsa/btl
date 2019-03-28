@@ -9,7 +9,7 @@ $login = $_SESSION['login'];
     window.location='../../index.php';
     </script>";
   }
-
+$base_url = 'http://localhost/btl/btl';
 ?>
 
 <!-- Sidebar user panel -->
@@ -45,17 +45,17 @@ $login = $_SESSION['login'];
       <i class="fa fa-table"></i> <span>Cadastros</span> <i class="fa fa-angle-left pull-right"></i>
     </a>
     <ul class="treeview-menu">
-      <li><a href="http://45.224.131.85/blt/pages/tables/cadUsuarios.php"><i class="fa fa-circle-o"></i>Usuários</a></li>
-      <li><a href="http://45.224.131.85/blt/pages/tables/cadVeiculos.php"><i class="fa fa-circle-o"></i> Veículos</a></li>
-      <li><a href="http://45.224.131.85/blt/pages/tables/cadAgua.php"><i class="fa fa-circle-o"></i> Tipos de Água</a></li>
+      <li><a href="<?php echo $base_url; ?>/pages/tables/cadUsuarios.php"><i class="fa fa-circle-o"></i>Usuários</a></li>
+      <li><a href="<?php echo $base_url; ?>/pages/tables/cadVeiculos.php"><i class="fa fa-circle-o"></i> Veículos</a></li>
+      <li><a href="<?php echo $base_url; ?>/pages/tables/cadAgua.php"><i class="fa fa-circle-o"></i> Tipos de Água</a></li>
       <li><a href="#"><i class="fa fa-circle-o"></i>Adicionais na Água</a></li>
-      <li><a href="http://45.224.131.85/blt/pages/tables/cadServico.php"><i class="fa fa-circle-o"></i> Serviços</a></li>
-      <!--<li><a href="http://45.224.131.85/blt/pages/tables/cadUniMedida.php"><i class="fa fa-circle-o"></i> Unidades de Medidas</a></li>-->
-      <li><a href="http://45.224.131.85/blt/pages/tables/cadPagamento.php"><i class="fa fa-circle-o"></i> Condições de Pagamento</a></li>
-      <li><a href="http://45.224.131.85/blt/pages/tables/cadTanque.php"><i class="fa fa-circle-o"></i> Cadastro de Tanques</a></li>
-      <li><a href="http://45.224.131.85/blt/pages/tables/cadClientes.php"><i class="fa fa-circle-o"></i> Clientes</a></li>
-      <li><a href="http://45.224.131.85/blt/pages/tables/cadClientesAdicionais.php"><i class="fa fa-circle-o"></i> Adicionais de Clientes</a></li>
-      <li><a href="http://45.224.131.85/blt/pages/tables/cadMotorista.php"><i class="fa fa-circle-o"></i> Motoristas</a></li>
+      <li><a href="<?php echo $base_url; ?>/pages/tables/cadServico.php"><i class="fa fa-circle-o"></i> Serviços</a></li>
+      <!--<li><a href="<?php echo $base_url; ?>/pages/tables/cadUniMedida.php"><i class="fa fa-circle-o"></i> Unidades de Medidas</a></li>-->
+      <li><a href="<?php echo $base_url; ?>/pages/tables/cadPagamento.php"><i class="fa fa-circle-o"></i> Condições de Pagamento</a></li>
+      <li><a href="<?php echo $base_url; ?>/pages/tables/cadTanque.php"><i class="fa fa-circle-o"></i> Cadastro de Tanques</a></li>
+      <li><a href="<?php echo $base_url; ?>/pages/tables/cadClientes.php"><i class="fa fa-circle-o"></i> Clientes</a></li>
+      <!--<li><a href="<?php echo $base_url; ?>/pages/tables/cadClientesAdicionais.php"><i class="fa fa-circle-o"></i> Adicionais de Clientes</a></li>-->
+      <li><a href="<?php echo $base_url; ?>/pages/tables/cadMotorista.php"><i class="fa fa-circle-o"></i> Motoristas</a></li>
     </ul>
   </li>
 
@@ -68,8 +68,8 @@ $login = $_SESSION['login'];
       <i class="fa fa-filter"></i> <span>Programação</span> <i class="fa fa-angle-left pull-right"></i>
     </a>
     <ul class="treeview-menu">
-      <li><a href="http://45.224.131.85/blt/pages/tables/cadPoco.php"><i class="fa fa-circle-o"></i> Poços</a></li>
-      <li><a href="http://45.224.131.85/blt/pages/tables/cadLeituras.php"><i class="fa fa-circle-o"></i> Leituras</a></li>
+      <li><a href="<?php echo $base_url; ?>/pages/tables/cadPoco.php"><i class="fa fa-circle-o"></i> Poços</a></li>
+      <li><a href="<?php echo $base_url; ?>/pages/tables/cadLeituras.php"><i class="fa fa-circle-o"></i> Leituras</a></li>
     </ul>
   </li>
 <?php } ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 26-Mar-2019 às 03:51
+-- Generation Time: 28-Mar-2019 às 00:58
 -- Versão do servidor: 10.1.31-MariaDB
 -- PHP Version: 7.0.29
 
@@ -124,14 +124,6 @@ CREATE TABLE `cad_clientes` (
   `tp_cobranca` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ativo` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Extraindo dados da tabela `cad_clientes`
---
-
-INSERT INTO `cad_clientes` (`id`, `data_inc`, `login_ad`, `nome`, `situacao`, `cnpj`, `cep`, `estado`, `rua`, `n`, `bairro`, `cidade`, `complemento`, `telefones`, `email_prin`, `email_sec`, `resp_compras`, `tel_compras`, `resp_financeiro`, `tel_financeiro`, `resp_manut`, `tel_manut`, `tp_cobranca`, `ativo`) VALUES
-(1, '2019-02-27 23:10:29', 'user', 'Fulano de Tal', 'Ativo', '1', '44034056', 'BA', 'Rua Ipuaçu', '9', 'Campo Limpo', 'Feira de Santana', 'Teste', '999999999', 'eu@uo.com.br', 'eu@uo.com.br', '1', '2', '3', '4', '5', '6', 'm³', 'SIM'),
-(2, '2019-02-28 11:38:54', 'user', 'Erik Marques', '30', 'FUlano de Tal', '44034056', 'BA', 'Rua Ipuaçu', '1', 'Campo Limpo', 'Feira de Santana', '1', '2', 'erik@uol.com.br', 'erik@uol.com.br', '5', '6', '7', '8', '9', '10', 'm³', 'SIM');
 
 -- --------------------------------------------------------
 
@@ -313,6 +305,19 @@ CREATE TABLE `cad_tanques` (
   `placa` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `capacidade` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `cad_tel`
+--
+
+CREATE TABLE `cad_tel` (
+  `id` int(11) NOT NULL,
+  `telefone` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `cod_cliente` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `login_ad` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -754,6 +759,12 @@ ALTER TABLE `cad_tanques`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `cad_tel`
+--
+ALTER TABLE `cad_tel`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `cad_usuario`
 --
 ALTER TABLE `cad_usuario`
@@ -797,7 +808,7 @@ ALTER TABLE `cad_agua`
 -- AUTO_INCREMENT for table `cad_clientes`
 --
 ALTER TABLE `cad_clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `cad_endereco`
@@ -858,6 +869,12 @@ ALTER TABLE `cad_servico`
 --
 ALTER TABLE `cad_tanques`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `cad_tel`
+--
+ALTER TABLE `cad_tel`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `cad_usuario`

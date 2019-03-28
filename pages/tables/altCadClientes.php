@@ -184,6 +184,7 @@ include "../../_scripts/config.php";
                     <td style="vertical-align: middle;text-align: center">Telefones:</td>
                     <td colspan="3">
                       <input type="text" style="border-radius: 3px" value="<?php echo $telefones; ?>" required="" class="form-control" name="cp11">
+                      <a href="addTel.php?id=<?php echo $id; ?>"><i class="fa fa-plus-square-o pull-right"></i></a>
                     </td>
                   </tr>
 
@@ -265,6 +266,132 @@ include "../../_scripts/config.php";
 
                   </form>
 
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+
+
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">Endereço Extra Cadastrado
+                  </h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <table id="example3" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th style="text-align: center">CEP</th> 
+                        <th style="text-align: center">Estado</th> 
+                        <th style="text-align: center">Rua</th> 
+                        <th style="text-align: center">Número</th> 
+                        <th style="text-align: center">Bairro</th> 
+                        <th style="text-align: center">Cidade</th> 
+                        <th style="text-align: center">Complemento</th> 
+                        <th>&nbsp;</th>                    
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <?php
+                          $sql = "SELECT *
+                          FROM cad_endereco
+                          WHERE cod_cliente = '$id'
+                          ORDER BY id ASC";
+                          $query = $mysqli->query($sql);
+                          while ($dados2 = $query->fetch_array()) {
+                      ?>
+
+                      <tr>
+                        <td style="text-align: center"><?php echo  utf8_encode($dados2['cep']);?></td> 
+                        <td style="text-align: center"><?php echo  utf8_encode($dados2['estado']);?></td> 
+                        <td style="text-align: center"><?php echo  utf8_encode($dados2['rua']);?></td> 
+                        <td style="text-align: center"><?php echo  utf8_encode($dados2['estado']);?></td> 
+                        <td style="text-align: center"><?php echo  utf8_encode($dados2['bairro']);?></td> 
+                        <td style="text-align: center"><?php echo  utf8_encode($dados2['cidade']);?></td> 
+                        <td style="text-align: center"><?php echo  utf8_encode($dados2['complemento']);?></td>
+
+                        <td style="text-align: center">
+                          <form id="formulario2" method="post" action="../../_scripts/delet.php" role="form">
+                            <input type="hidden" name="id2" value="<?php echo $dados2['id'];?>">
+                            <input type="hidden" name="tp2" value="endereco_extra">
+                              <button type="submit" value="submit" style="border: 0px; background: none">
+                                <i style="color: red" class="fa fa-close"></i>
+                              </button>
+                          </form>
+                        </td> 
+
+                      </tr>
+
+                    <?php } ?>
+
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                        <th style="text-align: center">CEP</th> 
+                        <th style="text-align: center">Estado</th> 
+                        <th style="text-align: center">Rua</th> 
+                        <th style="text-align: center">Número</th> 
+                        <th style="text-align: center">Bairro</th> 
+                        <th style="text-align: center">Cidade</th> 
+                        <th style="text-align: center">Complemento</th> 
+                        <th>&nbsp;</th>    
+                    </tr>
+                  </tfoot>
+                  </table>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+
+
+
+
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">Telefones Extras Cadastrados
+                  </h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th style="text-align: center">Telefone</th> 
+                        <th>&nbsp;</th>                    
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <?php
+                          $sql = "SELECT *
+                          FROM cad_tel
+                          WHERE cod_cliente = '$id'
+                          ORDER BY id ASC";
+                          $query = $mysqli->query($sql);
+                          while ($dados3 = $query->fetch_array()) {
+                      ?>
+
+                      <tr>
+                        <td style="text-align: center"><?php echo  utf8_encode($dados3['telefone']);?></td> 
+
+                        <td style="text-align: center">
+                          <form id="formulario22" method="post" action="../../_scripts/delet.php" role="form">
+                            <input type="hidden" name="id3" value="<?php echo $dados3['id'];?>">
+                            <input type="hidden" name="tp3" value="tel_extra">
+                              <button type="submit" value="submit" style="border: 0px; background: none">
+                                <i style="color: red" class="fa fa-close"></i>
+                              </button>
+                          </form>
+                        </td> 
+
+                      </tr>
+
+                    <?php } ?>
+
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                        <th style="text-align: center">Telefone</th>
+                        <th>&nbsp;</th>    
+                    </tr>
+                  </tfoot>
+                  </table>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
 
@@ -515,6 +642,151 @@ include "../../_scripts/config.php";
              
         });
 
+    </script>
+
+    <script type="text/javascript">
+        $(function ($) {
+            // Quando enviado o formulário            
+            $('#formulario2').on('submit', function () {
+               var i = 1;
+                // Armazenando informações do formulário em variáveis
+                var id = $("input[name=id2]").val();
+                var tp = $("input[name=tp2]").val();
+                // Fazendo requisição AJAX
+                $.post(this.action, {id: id, tp: tp}, function (resposta) {
+                    console.log(resposta);
+                    var i=0;
+                    swal("", "Deletado com Sucesso", "success");     
+                    if(i==0){
+                      setTimeout('location.reload();', 1000);
+                    }       
+                });
+                // Retorna FALSE para que o formulário não seja enviado de forma convencional
+                return false;
+
+            }); 
+             
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        $(function ($) {
+            // Quando enviado o formulário            
+            $('#formulario22').on('submit', function () {
+               var i = 1;
+                // Armazenando informações do formulário em variáveis
+                var id = $("input[name=id3]").val();
+                var tp = $("input[name=tp3]").val();
+                // Fazendo requisição AJAX
+                $.post(this.action, {id: id, tp: tp}, function (resposta) {
+                    console.log(resposta);
+                    var i=0;
+                    swal("", "Deletado com Sucesso", "success");     
+                    if(i==0){
+                      setTimeout('location.reload();', 1000);
+                    }       
+                });
+                // Retorna FALSE para que o formulário não seja enviado de forma convencional
+                return false;
+
+            }); 
+             
+        });
+
+    </script>
+
+
+    <script>
+      $(function () {
+
+        $('#example1').DataTable( {
+
+
+
+         "language": {
+        "sEmptyTable": "Nenhum registro encontrado",
+      "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+      "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+      "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+      "sInfoPostFix": "",
+      "sInfoThousands": ".",
+      "sLengthMenu": "_MENU_ resultados por página",
+      "sLoadingRecords": "Carregando...",
+      "sProcessing": "Processando...",
+      "sZeroRecords": "Nenhum registro encontrado",
+      "sSearch": "Pesquisar",
+      "oPaginate": {
+          "sNext": "Próximo",
+          "sPrevious": "Anterior",
+          "sFirst": "Primeiro",
+          "sLast": "Último"
+      },
+      "oAria": {
+          "sSortAscending": ": Ordenar colunas de forma ascendente",
+          "sSortDescending": ": Ordenar colunas de forma descendente"
+          }
+      }
+
+
+
+
+
+
+    } );
+
+
+    $('#example3').DataTable( {
+
+
+
+         "language": {
+        "sEmptyTable": "Nenhum registro encontrado",
+      "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+      "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+      "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+      "sInfoPostFix": "",
+      "sInfoThousands": ".",
+      "sLengthMenu": "_MENU_ resultados por página",
+      "sLoadingRecords": "Carregando...",
+      "sProcessing": "Processando...",
+      "sZeroRecords": "Nenhum registro encontrado",
+      "sSearch": "Pesquisar",
+      "oPaginate": {
+          "sNext": "Próximo",
+          "sPrevious": "Anterior",
+          "sFirst": "Primeiro",
+          "sLast": "Último"
+      },
+      "oAria": {
+          "sSortAscending": ": Ordenar colunas de forma ascendente",
+          "sSortDescending": ": Ordenar colunas de forma descendente"
+          }
+      }
+
+
+
+
+
+
+    } );  
+
+
+  
+
+
+
+
+        $("#example11").DataTable();
+        $('#example2').DataTable({
+          "paging": true,
+          "lengthChange": false,
+          "searching": false,
+          "ordering": true,
+          "info": true,
+          "autoWidth": false
+        });
+      });
     </script>
 
     
