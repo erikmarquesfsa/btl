@@ -159,7 +159,7 @@ include "../../_scripts/config.php";
                         <td style="text-align: center;vertical-align: middle;"><?php echo  utf8_encode($dados['contato']);?></td> 
                         <td style="text-align: center;vertical-align: middle;"><?php echo  utf8_encode($dados['situacao']);?></td> 
                         <td style="text-align: center;vertical-align: middle;">
-                          <a href="http://45.224.131.85/blt/pages/tables/altCadMotorista.php?id=<?php echo $dados['id'];?>" style="color:#000;">   
+                          <a href="<?php echo $base_url; ?>/pages/tables/altCadMotorista.php?id=<?php echo $dados['id'];?>" style="color:#000;">   
                            <i class="fa fa-pencil"></i> 
                           </a>
                         </td>

@@ -231,7 +231,7 @@ include "../../_scripts/config.php";
                         <td><?php echo $dados['cor'];?></td> 
                         <td><?php echo $dados['km'];?></td>
                         <td>
-                          <a href="http://45.224.131.85/blt/pages/tables/altCadVeiculos.php?id=<?php echo $dados['id'];?>" style="color:#000;">
+                          <a href="<?php echo $base_url; ?>/pages/tables/altCadVeiculos.php?id=<?php echo $dados['id'];?>" style="color:#000;">
                             <i class="fa fa-pencil"></i> 
                           </a>
                         </td>

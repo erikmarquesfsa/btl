@@ -235,7 +235,7 @@ include "../../_scripts/config.php";
                         <td style="text-align: center"><?php echo  utf8_encode($dados['cpf']);?></td> 
                         <td style="text-align: center"><?php echo  utf8_encode($dados['ativo']);?></td> 
                         <td style="text-align: center">
-                          <a href="http://45.224.131.85/blt/pages/tables/altCadUsuarios.php?id=<?php echo $dados['id'];?>" style="color:#000;">                          
+                          <a href="<?php echo $base_url; ?>/pages/tables/altCadUsuarios.php?id=<?php echo $dados['id'];?>" style="color:#000;">                          
                             <i class="fa fa-pencil"></i> 
                           </a>
                         </td>
