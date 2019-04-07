@@ -101,8 +101,8 @@ include "../../_scripts/config.php";
                     <tbody>
                       <?php
                           $sql = "SELECT 
-                          cad_clientes.id, 
-                          cad_clientes.nome, 
+                          login.id, 
+                          login.nome, 
                           cad_perfis.cadastro, 
                           cad_perfis.programacao, 
                           cad_perfis.processos, 
@@ -110,9 +110,9 @@ include "../../_scripts/config.php";
                           cad_perfis.vazao, 
                           cad_perfis.relatorios, 
                           cad_perfis.seguranca
-                          FROM cad_clientes
-                          LEFT JOIN cad_perfis ON cad_perfis.usuario = cad_clientes.id
-                          ORDER BY cad_clientes.nome ASC";
+                          FROM login
+                          LEFT JOIN cad_perfis ON cad_perfis.usuario = login.id
+                          ORDER BY login.nome ASC";
                           $query = $mysqli->query($sql);
                           while ($dados = $query->fetch_array()) {
                       ?>

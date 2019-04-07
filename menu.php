@@ -133,7 +133,7 @@ $base_url = 'http://localhost/btl/btl';
     </a>
     <ul class="treeview-menu">
       <li><a href="#"><i class="fa fa-circle-o"></i> Usuários</a></li>
-      <li><a href="#"><i class="fa fa-circle-o"></i> Perfis de Acesso</a></li>
+      <li><a href="<?php echo $base_url; ?>/pages/tables/cadPerfisAcesso.php"><i class="fa fa-circle-o"></i> Perfis de Acesso</a></li>
       <li><a href="#"><i class="fa fa-circle-o"></i> Alterar senha</a></li>
       <li><a href="#"><i class="fa fa-circle-o"></i> Usuários logados</a></li>
       <li><a href="#"><i class="fa fa-circle-o"></i> Logs de Acesso</a></li>

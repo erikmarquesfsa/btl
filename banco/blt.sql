@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 28-Mar-2019 às 00:58
+-- Generation Time: 07-Abr-2019 às 18:39
 -- Versão do servidor: 10.1.31-MariaDB
 -- PHP Version: 7.0.29
 
@@ -124,6 +124,13 @@ CREATE TABLE `cad_clientes` (
   `tp_cobranca` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ativo` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `cad_clientes`
+--
+
+INSERT INTO `cad_clientes` (`id`, `data_inc`, `login_ad`, `nome`, `situacao`, `cnpj`, `cep`, `estado`, `rua`, `n`, `bairro`, `cidade`, `complemento`, `telefones`, `email_prin`, `email_sec`, `resp_compras`, `tel_compras`, `resp_financeiro`, `tel_financeiro`, `resp_manut`, `tel_manut`, `tp_cobranca`, `ativo`) VALUES
+(1, '2019-04-07 15:28:30', 'user', '3', '3', '3', '44001080', 'BA', 'Rua Artur Bernardes', '1', 'Centro', 'Feira de Santana', '1', '2', 'er@hotmail.com', 'er@hotmail.com', '1', '1', '1', '1', '1', '1', 'm³', 'SIM');
 
 -- --------------------------------------------------------
 
@@ -256,7 +263,7 @@ CREATE TABLE `cad_perfis` (
 --
 
 INSERT INTO `cad_perfis` (`id`, `usuario`, `cadastro`, `programacao`, `processos`, `crms`, `vazao`, `relatorios`, `seguranca`) VALUES
-(1, '2', 'SIM', 'SIM', 'NÃƒO', 'NÃƒO', 'NÃƒO', 'NÃƒO', 'SIM');
+(1, '1', 'SIM', 'SIM', 'SIM', 'SIM', 'SIM', 'SIM', 'SIM');
 
 -- --------------------------------------------------------
 
@@ -808,7 +815,7 @@ ALTER TABLE `cad_agua`
 -- AUTO_INCREMENT for table `cad_clientes`
 --
 ALTER TABLE `cad_clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `cad_endereco`
@@ -874,7 +881,7 @@ ALTER TABLE `cad_tanques`
 -- AUTO_INCREMENT for table `cad_tel`
 --
 ALTER TABLE `cad_tel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `cad_usuario`
